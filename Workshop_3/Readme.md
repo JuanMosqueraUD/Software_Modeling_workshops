@@ -26,3 +26,7 @@ and time execution of the searches in the application, and save stats in a perfo
 
 8. Verify if you could add encapsulation to increase the security of the application
 
+Further information about technical decisions about bussines rules are writen on the technical report __Important to read the technical report to understand some of the missing features like facade__
+
+Class diagram will be also included on the technical report document.
+

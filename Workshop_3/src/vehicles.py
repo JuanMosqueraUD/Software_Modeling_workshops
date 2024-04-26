@@ -62,7 +62,19 @@ class Car(Vehicle):
 class Truck(Vehicle):
     """This class is a concrete implemtantion of a truck"""
 
-    def calculate_gas_consupmtion(self) -> float:
+    def __init__(
+        self,
+        engine: Engine,
+        chassis: str,
+        price: float,
+        model: str,
+        year: int,
+    ):
+        self.consumption = self.__calculate_gas_consupmtion()
+        super().__init__(engine, chassis, price, model, year, self.consumption)
+
+
+    def __calculate_gas_consupmtion(self) -> float:
         """
         This method calculates consumption based on engine
         values.
@@ -76,6 +88,7 @@ class Truck(Vehicle):
             + (0.3 if self.chassis == "A" else 0.5)
         )
         return consumption
+    
 
 
 class Yacht(Vehicle):
