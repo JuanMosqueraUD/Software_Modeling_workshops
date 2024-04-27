@@ -1,5 +1,5 @@
 from engines import Engine
-
+from factories import EnginesFacade 
 
 class Vehicle:
     """This class represents an abstraction of a vehicle inside the catalog business model."""
@@ -110,3 +110,37 @@ class Yacht(Vehicle):
         self.length = length
         self.weight = weight
         self.trade = trade
+
+class EngineFlyweight:
+
+    engines = {}
+    
+    @staticmethod
+    def get_engine(self, type: str,price:str) -> Engine:
+
+        if price == "low" and type == "electric":
+            engine_type = "low-electric"
+            if engine_type not in EngineFlyweight.engines:
+                EngineFlyweight.engines[engine_type] =EnginesFacade.get_engine(type,price)
+            else:
+                return EngineFlyweight.engines[engine_type]
+        elif price == "high" and type == "electric":
+            engine_type = "high-electric"
+            if engine_type not in EngineFlyweight.engines:
+                EngineFlyweight.engines[engine_type] =EnginesFacade.get_engine(type,price)
+            else:
+                return EngineFlyweight.engines[engine_type]
+        elif price == "low" and type == "gas":
+            engine_type = "low-gas"
+            if engine_type not in EngineFlyweight.engines:
+                EngineFlyweight.engines[engine_type] =EnginesFacade.get_engine(type,price)
+            else:
+                return EngineFlyweight.engines[engine_type]
+        elif price == "high" and type == "gas":
+            engine_type = "high-gas"
+            if engine_type not in EngineFlyweight.engines:
+                EngineFlyweight.engines[engine_type] =EnginesFacade.get_engine(type,price)
+            else:
+                return EngineFlyweight.engines[engine_type]
+        else:
+            raise ValueError("Invalid engine type")
